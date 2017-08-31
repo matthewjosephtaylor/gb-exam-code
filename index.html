@@ -30,9 +30,9 @@
     </tr>
   </table>
   <h1>Exam Question 1 Test Results</h1>
-  <button onclick="runTests()">Re-run Tests</button>
+  <button onclick="testExam1()">Re-run Tests</button>
   <hr>
-  <table id="testResults">
+  <table id="examReport1">
     <tr>
       <th>Result</th>
       <th>Expected</th>
@@ -57,9 +57,9 @@
     </tr>
   </table>
   <h1>Exam Question 2 Test Results</h1>
-  <button onclick="runTests()">Re-run Tests</button>
+  <button onclick="testExam2()">Re-run Tests</button>
   <hr>
-  <table id="testResults">
+  <table id="examReport2">
     <tr>
       <th>Result</th>
       <th>Expected</th>
@@ -69,8 +69,11 @@
   </table>
 
 
+  <script src="./unit_test_framework.js"></script>
   <script src="./exam_1.js"></script>
+  <script src="./exam_2.js"></script>
   <script src="./unit_tests_1.js"></script>
+  <script src="./unit_tests_2.js"></script>
 </body>
 
 </html>

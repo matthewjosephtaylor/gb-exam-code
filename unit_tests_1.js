@@ -1,39 +1,5 @@
-/**
- * In the real world a testing framework would be used.
- * For the purposes of the exam I'm choosing to also hand craft
- * a simple testing framework that leaves much to be desired but 
- * gets the job done.
- */
-
-function runTest(expected, testFunction) {
-
-  let actual = testFunction();
-  let metExpectations = false;
-  if (expected instanceof Function) {
-    metExpectations = expected(actual);
-  } else {
-    metExpectations = actual == expected;
-  }
-  let testResult;
-  if (metExpectations) {
-    testResult = "<p style=\"color:#00FF00\">PASS</p>";
-  } else {
-    testResult = "<p style=\"color:#FF0000\">FAIL</p>";
-  }
-  writeResults(testResult, testFunction, expected, actual);
-}
-
-function writeResults(testResult, testFunction, expected, actual) {
-  let table = document.getElementById("testResults");
-  let row = table.insertRow();
-  row.insertCell().innerHTML = testResult;
-  row.insertCell().innerHTML = expected;
-  row.insertCell().innerHTML = actual;
-  row.insertCell().innerHTML = testFunction;
-}
-
-function runTests() {
-  try {
+function testExam1() {
+  runAllTests("examReport1", (runTest) => {
     // test boundaries
     runTest(0, () => multiplyBy321(0));
     runTest(321, () => multiplyBy321(1));
@@ -64,13 +30,13 @@ function runTests() {
     runTest(-321, () => multiplyBy321("-1"));
 
     // random positive integer value testing 
-    for(let i=0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
       let randomValue = Math.floor((Number.MAX_SAFE_INTEGER * Math.random()) / 321);
       runTest(321 * randomValue, () => multiplyBy321(randomValue));
     }
 
     // random negative integer value testing 
-    for(let i=0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
       let randomValue = -Math.floor((Number.MAX_SAFE_INTEGER * Math.random()) / 321);
       runTest(321 * randomValue, () => multiplyBy321(randomValue));
     }
@@ -81,12 +47,8 @@ function runTests() {
     runTest(0, () => multiplyBy321(0.1));
     runTest(0, () => multiplyBy321(0.9));
 
+  });
 
-  } catch (e) {
-    writeResults("FAILURE IN TEST FRAMEWORK!");
-    console.log(e);
-    return "Unexpected error in testing framework: " + e;
-  }
 }
 
-runTests();
+testExam1();
