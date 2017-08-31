@@ -1,3 +1,5 @@
+
+// relies on unit testing framework found here https://github.com/matthewjosephtaylor/gb-exam-code/blob/master/unit_test_framework.js
 function testExam1() {
   runAllTests("examReport1", (runTest) => {
     // test boundaries

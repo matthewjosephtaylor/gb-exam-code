@@ -19,6 +19,7 @@ function getRealRandomInt(max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// relies on unit testing framework found here https://github.com/matthewjosephtaylor/gb-exam-code/blob/master/unit_test_framework.js
 function testExam2() {
   runAllTests("examReport2", (runTest) => {
 
